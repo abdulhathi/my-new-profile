@@ -7,7 +7,8 @@
     "dev": "ts-node-dev --respawn --transpile-only server.ts",
     "build": "tsc -p tsconfig.json",
     "start": "node dist/server.js",
-    "clean": "rimraf dist"
+    "clean": "rimraf dist",
+    "serve": "pm2 start server.js --interpreter node"
   },
   "keywords": [],
   "author": "",
