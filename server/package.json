@@ -8,7 +8,7 @@
     "build": "tsc -p tsconfig.json",
     "start": "node dist/server.js",
     "clean": "rimraf dist",
-    "serve": "pm2 start server.js --interpreter node"
+    "serve": "pm2 start server.ts --interpreter node"
   },
   "keywords": [],
   "author": "",
