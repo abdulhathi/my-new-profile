@@ -1,0 +1,27 @@
+services:
+  # MongoDB services
+  mongo_db:
+    image: mongo:6
+    ports:
+      - "27017:27017"
+    volumes:
+      - portfolio:/data/db
+  
+  # Node API service
+  api:
+    build: ./server
+    ports:
+      - "4000:4000"
+    volumes:
+      - ./server:/app
+      - /app/node_modules
+    environment:
+      MONGO_URI: mongodb://mongo_db:27017/portfolio
+      PORT: 4000
+      PORTFOLIO_JWT_SECRET: jwtPrivatKey
+      NODE_ENV: development
+    depends_on:
+      - mongo_db
+
+volumes:
+  portfolio:
